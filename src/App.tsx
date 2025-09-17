@@ -21,7 +21,9 @@ import { ControllerMessage } from './components/ControllerMessage';
 import { PredictionDashboard } from './components/PredictionDashboard';
 import { Toaster } from './components/ui/toaster';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Trends } from './components/Trends';
+import { TrendsSection } from './components/TrendsSection';
+import { AchievementsSection } from './components/AchievementsSection';
+import { ControllerRecordsSection } from './components/ControllerRecordsSection';
 
 // Mock data for demonstration
 const mockPredictionData = {
@@ -77,11 +79,6 @@ const Achievements = () => (
     </CardContent>
   </Card>
 );
-
-// Import new section components
-import { TrendsSection } from './components/TrendsSection';
-import { AchievementsSection } from './components/AchievementsSection';
-import { ControllerRecordsSection } from './components/ControllerRecordsSection';
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -249,6 +246,7 @@ export default function App() {
               </Menubar>
             </div>
           </div>
+        </div>
         </motion.header>
 
         <motion.div 
@@ -317,11 +315,11 @@ export default function App() {
                 </TabsContent>
 
                 <TabsContent value="trends" className="mt-8">
-                  <Trends />
+                  <TrendsSection />
                 </TabsContent>
 
                 <TabsContent value="achievements" className="mt-8">
-                  <Achievements />
+                  <AchievementsSection />
                 </TabsContent>
 
                 <TabsContent value="records" className="mt-8">
