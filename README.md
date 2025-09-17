@@ -1,168 +1,57 @@
 # Infinite Regressors
 
-**AI-Powered Train Traffic Control System**
+*AI-Powered Train Traffic Control System*
 
 [![Smart India Hackathon 2025](https://img.shields.io/badge/Smart_India_Hackathon-2025-blue)]()
 
 ---
 
-## Overview
+## 💡 Overview
 
-Infinite Regressors is a hybrid decision‑support system that combines AI/ML with combinatorial optimization to maximize section throughput and improve train scheduling. It helps controllers make faster, safer, and more informed decisions in real time, provides what‑if simulations, and scales from local sections to nationwide networks.
-
----
-
-## Problem Statement
-
-* **ID:** 25022
-* **Title:** Maximizing Section Throughput Using AI-Powered Precise Train Traffic Control
-* **Category:** Software
-* **Challenge:** Optimize train movements to reduce congestion, improve punctuality, handle disruptions, and maintain safety and scalability in real time.
+Infinite Regressors is an AI-powered train traffic control system that combines AI/ML with combinatorial optimization to maximize section throughput and improve train scheduling. It provides real-time, data-driven recommendations to help controllers make faster, safer, and more informed decisions. The system is designed to scale from local sections to nationwide networks and includes "what-if" simulations to evaluate interventions.
 
 ---
 
-## Proposed Solution
+## 🧐 Problem Statement
 
-A hybrid architecture that provides AI-driven recommendations validated and finalized by an optimization engine.
+*Challenge ID:* 25022
+*Title:* Maximizing Section Throughput Using AI-Powered Precise Train Traffic Control
 
-**Components**
-
-* **Frontend (React.js + Tailwind):** Interactive dashboard with real-time visualization and controller tools.
-* **C++ Scheduler (OR-Tools):** High-performance optimization engine producing conflict-free schedules.
-* **Python AI (GNN / RL):** Adaptive models for delay prediction and policy suggestion.
-* **Simulation Layer:** “What-if” scenarios to evaluate interventions without affecting live traffic.
-* **Integration Layer:** Connectors for IRCTC/NTES and synthetic-data generators when live feeds are limited.
+Our system addresses the critical need to optimize train movements, which helps to reduce congestion, improve punctuality, and efficiently handle disruptions. By providing real-time recommendations, we enhance both safety and scalability across the rail network.
 
 ---
 
-## Features
+## 🚀 Proposed Solution
 
-* Dynamic scheduling to minimize delays and section congestion.
-* Real-time adaptability to handle disruptions (weather, incidents, maintenance).
-* Rule-based safety validation to ensure regulatory compliance.
-* Human-in-the-loop controls: explainability and manual override for controllers.
-* Scenario simulation and offline testing environment.
+We've developed a *hybrid architecture* that uses AI models to generate initial policy recommendations. These recommendations are then validated and finalized by a high-performance optimization engine, ensuring that all schedules are conflict-free and compliant with safety regulations.
 
----
+### Key Components
 
-## Technology Stack
-
-* **Frontend:** React.js, Tailwind CSS, Vite, WebSockets
-* **Backend & AI:** Python (AI/ML servers), C++ (OR-Tools scheduler)
-* **DevOps:** Docker, Kubernetes, CI/CD pipelines
-* **Data:** IRCTC / NTES APIs, synthetic data generators
+* *Frontend:* A dynamic, interactive dashboard built with *React.js* and *Tailwind CSS* that provides real-time visualization and control tools for railway operators.
+* *C++ Scheduler:* A high-performance optimization engine using *OR-Tools* to generate optimal, conflict-free train schedules.
+* *Python AI:* Adaptive models based on *Graph Neural Networks (GNN)* and *Reinforcement Learning (RL)* that predict delays and suggest intelligent scheduling policies.
+* *Simulation Layer:* A dedicated environment for running *"what-if" scenarios* to test potential interventions without affecting live train traffic.
+* *Integration Layer:* Connectors to live data feeds from *IRCTC/NTES* and synthetic data generators for training and testing.
 
 ---
 
-## Project Structure
+## ✨ Features
 
-```
-InfiniteRegressors/
-├── server/                    # Backend services (C++ scheduling, Python AI servers)
-│   ├── scheduler/             # C++ OR-Tools scheduling engine
-│   └── ai_models/             # Python AI (GNN, RL) and model servers
-├── src/                       # Frontend (React) code
-├── public/                    # Static assets
-├── docs/                      # Diagrams, research, design docs
-├── scripts/                   # Helper scripts (setup, deployment)
-├── README.md                  # This file
-├── package.json               # Frontend deps
-├── vite.config.ts             # Vite config
-├── Dockerfile                 # Containerization
-└── .gitignore
-```
+* *Dynamic Scheduling:* Minimizes delays and section congestion in real time.
+* *Real-time Adaptability:* Quickly responds to disruptions like weather, incidents, and maintenance.
+* *Safety Validation:* Ensures regulatory compliance with built-in, rule-based checks.
+* *Human-in-the-Loop:* Offers explainable AI recommendations with manual override options for controllers.
+* *Scenario Simulation:* Provides an offline testing environment for evaluating new strategies.
 
 ---
 
-## References
+## 🛠 Technology Stack
 
-Selected research that inspired this work:
-
-* *Train Scheduling Optimization*, arXiv:2506.16329
-* *Railway operation rescheduling via dynamic simulation and RL*, arXiv:2201.06276
-* *Passenger Timetabling Optimization*, Journal of Modern Transportation (Springer)
-
----
-
-## How to Run Locally
-
-> The commands below are illustrative; adapt paths and scripts to your repo layout.
-
-1. **Clone repo**
-
-```bash
-git clone https://github.com/<your-username>/infinite-regressors.git
-cd infinite-regressors
-```
-
-2. **Frontend**
-
-```bash
-cd src
-npm install
-npm run dev
-# or
-npm run build && npm run preview
-```
-
-3. **Backend / AI**
-
-* Python AI server (example)
-
-```bash
-cd server/ai_models
-pip install -r requirements.txt
-python ai_model_server.py
-```
-
-* C++ scheduler (example)
-
-```bash
-cd server/scheduler
-# build step depends on your toolchain; example using make
-make
-./scheduler_engine
-```
-
-4. **Environment variables**
-   Create a `.env` with required keys (API keys, DB URIs, cloud credentials). Example `.env` fields:
-
-```
-IRCTC_API_KEY=...
-NTES_API_KEY=...
-DATABASE_URL=...
-```
-
-5. **Open dashboard**
-
-```
-http://localhost:3000
-```
+* *Frontend:* React.js, Tailwind CSS, Vite, WebSockets
+* *Backend & AI:* Python (AI/ML), C++ (OR-Tools)
+* *DevOps:* Docker, Kubernetes, CI/CD pipelines
+* *Data Sources:* IRCTC/NTES APIs, synthetic data generators
 
 ---
 
-## Contributing
-
-1. Fork the repo
-2. Create a branch: `git checkout -b feature/your-feature`
-3. Commit changes: `git commit -m "Add feature"`
-4. Push: `git push origin feature/your-feature`
-5. Open a Pull Request with a clear description
-
-**Areas for contribution**: optimization algorithms, simulation scenarios, UI/UX, integration adapters, testing and CI/CD.
-
----
-
-## License
-
-MIT License — see `LICENSE` for details.
-
----
-
-## Acknowledgments
-
-Developed for **Smart India Hackathon 2025** by the *Infinite Regressors* team. Thanks to mentors, domain experts, and the open-source community.
-
----
-
-
+## 📂 Project Structure
