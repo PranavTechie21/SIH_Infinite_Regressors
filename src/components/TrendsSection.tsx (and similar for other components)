@@ -1,0 +1,9 @@
+
+import { useLanguage } from '../LanguageContext';
+
+export function TrendsSection() {
+  const { language } = useLanguage();
+
+  // Use the language variable as needed in your component
+  // ...
+}
